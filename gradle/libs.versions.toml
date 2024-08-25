@@ -1,0 +1,23 @@
+[versions]
+kotlin = "2.0.10"
+kotest = "5.9.1"
+serialization = "1.7.1"
+graphql = "6.8.4"
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-mutliplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kotest-multiplatform = { id = "io.kotest.multiplatform", version.ref = "kotest" }
+expediagroup-graphql = { id = "com.expediagroup.graphql", version.ref = "graphql" }
+publication = { id = "com.vanniktech.maven.publish", version = "0.29.0" }
+
+[libraries]
+kotlin-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization" }
+kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
+kotest-framework-engine = { module = "io.kotest:kotest-framework-engine", version.ref = "kotest" }
+kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
+kotest-common = { module = "io.kotest:kotest-common", version.ref = "kotest" }
+kotlinpoet = { group = "com.squareup", name = "kotlinpoet", version = "1.18.1" }
+graphql-ktor = { group = "com.expediagroup", name = "graphql-kotlin-ktor-client", version.ref = "graphql" }
+clikt = { group = "com.github.ajalt.clikt", name = "clikt", version = "4.4.0" }
