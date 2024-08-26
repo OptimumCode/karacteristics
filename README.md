@@ -1,6 +1,7 @@
 # karacteristics
 
 [![Licence](https://img.shields.io/github/license/OptimumCode/json-schema-validator)](https://opensource.org/license/mit/)
+![Maven Central Version](https://img.shields.io/maven-central/v/io.github.optimumcode/karacteristics)
 
 The **karacteristics** library provides convenient extension properties to get characteristics for Unicode codepoints.
 The following characteristics are available:
