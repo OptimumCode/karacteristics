@@ -55,7 +55,7 @@ jobs:
     uses: ./.github/workflows/check.yml
     with:
       run-on: ubuntu-latest
-      task: allTest
+      task: allTests
       upload-code-coverage: ${{ inputs.upload-code-coverage }}
       collect-code-coverage: ${{ inputs.collect-code-coverage }}
     secrets:
@@ -64,9 +64,9 @@ jobs:
     uses: ./.github/workflows/check.yml
     with:
       run-on: macos-latest
-      task: allTest
+      task: allTests
   check-windows:
     uses: ./.github/workflows/check.yml
     with:
       run-on: windows-latest
-      task: allTest
+      task: allTests
