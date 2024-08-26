@@ -1,0 +1,33 @@
+name: "Run tests for PR"
+
+on:
+  pull_request:
+    paths-ignore:
+    - 'README.md'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  store-pr:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Save PR number
+      env:
+        PR_NUMBER: ${{ github.event.number }}
+      run: |
+        mkdir -p ./pr
+        echo $PR_NUMBER > ./pr/pr_number
+    - uses: actions/upload-artifact@v4
+      with:
+        name: pr_number
+        path: pr/
+  dump-unicode-data:
+    uses: ./.github/workflows/unicode-dump.yml
+  check-pr:
+    needs:
+      - dump-unicode-data
+    uses: ./.github/workflows/build-and-test.yml
+    with:
+      collect-code-coverage: false

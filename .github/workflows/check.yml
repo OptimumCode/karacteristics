@@ -1,0 +1,75 @@
+name: Check project
+
+on:
+  workflow_call:
+    inputs:
+      run-on:
+        type: string
+        required: true
+        description: "runner to check the project"
+      task:
+        type: string
+        required: true
+        description: "task to check the platform targets"
+      upload-code-coverage:
+        type: boolean
+        description: "enabled uploading coverage report to codecov"
+        required: false
+        default: false
+      collect-code-coverage:
+        type: boolean
+        description: "enables collecting coverage reports and uploading them as artifacts"
+        required: false
+        default: false
+    secrets:
+      CODECOV_TOKEN:
+        description: "token to upload codecov report"
+        required: false
+
+jobs:
+  check:
+    runs-on: ${{ inputs.run-on }}
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version-file: .java-version
+      - name: Validate Gradle Wrapper
+        uses: gradle/actions/wrapper-validation@v4
+      - name: Cache konan
+        uses: actions/cache@v4
+        with:
+          path: ~/.konan
+          key: ${{ runner.os }}-gradle-${{ hashFiles('*.gradle.kts') }}
+          restore-keys: |
+              ${{ runner.os }}-gradle-
+      - name: Cache unicode data
+        uses: actions/cache@v4
+        with:
+          enableCrossOsArchive: true
+          fail-on-cache-miss: true
+          path: unicode_dump
+          key: unicode-dump-${{ hashFiles('unicode_dump/*') }}
+          restore-keys: |
+            unicode-dump-
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: wrapper
+      - name: Build
+        run: ./gradlew --no-daemon --info ${{ inputs.task }} koverXmlReport --build-cache
+      - name: Upload coverage reports to Codecov
+        if: inputs.upload-code-coverage && github.actor != 'dependabot[bot]'
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Collect coverage reports
+        if: inputs.collect-code-coverage && github.actor != 'dependabot[bot]'
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-reports
+          path: '**/build/reports/kover/report.xml'

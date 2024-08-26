@@ -1,0 +1,71 @@
+name: Publish snapshot
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'build.gradle.kts'
+      - 'gradle.properties'
+      - 'library/**'
+      - 'gradle/**'
+      - 'generator/**'
+      - '.github/workflows/snapshot_release.yml'
+
+jobs:
+  dump-unicode-data:
+    uses: ./.github/workflows/unicode-dump.yml
+  build-and-test:
+    needs:
+      - dump-unicode-data
+    uses: ./.github/workflows/build-and-test.yml
+    with:
+      upload-code-coverage: false
+  publish:
+    needs:
+      - build-and-test
+    runs-on: macos-latest
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version-file: .java-version
+      - name: Validate Gradle Wrapper
+        uses: gradle/actions/wrapper-validation@v4
+      - name: Cache konan
+        uses: actions/cache@v4
+        with:
+          path: ~/.konan
+          key: ${{ runner.os }}-gradle-${{ hashFiles('*.gradle.kts') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+      - name: Cache unicode data
+        uses: actions/cache@v4
+        with:
+          enableCrossOsArchive: true
+          fail-on-cache-miss: true
+          path: unicode_dump
+          key: unicode-dump-${{ hashFiles('unicode_dump/*') }}
+          restore-keys: |
+            unicode-dump-
+      - name: Build with Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: wrapper
+      - name: Setup Gradle
+        run: >
+          ./gradlew
+          --no-daemon
+          --info
+          :karacteristics:assemble
+          :karacteristics:publishAllPublicationsToMavenCentralRepository
+        env:
+          ORG_GRADLE_PROJECT_signingInMemoryKeyId: ${{ secrets.SIGNING_KEY_ID }}
+          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.SIGNING_PASSWORD }}
+          ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.SIGNING_SECRET_KEY }}
+          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.OSSRH_USERNAME }}
+          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.OSSRH_PASSWORD }}
