@@ -26,6 +26,30 @@ private const val CONTAINS_METHOD = "contains"
 
 private const val CODEPOINT_PARAMETER = "codepoint"
 
+fun generateCategoryTests(
+  packageName: String,
+  testPackageName: String,
+  outputDir: Path,
+  classes: List<Category>,
+  rangeProvider: (Category) -> List<Range>,
+) {
+  val enumClassname = ClassName(packageName, "CodepointCategory")
+  classes.forEach { category ->
+    val description =
+      TestDescription(
+        name = category.name,
+        property = "category",
+        expectedEnum = enumClassname,
+        expectedName = category.enumName(),
+        ranges = rangeProvider(category),
+      )
+    generateTests(
+      ClassName(testPackageName, "CodepointCategory${category.name.replace(" ", "")}Test"),
+      sequenceOf(description),
+    ).writeTo(outputDir)
+  }
+}
+
 fun generateCategoryClasses(
   packageName: String,
   outputDir: Path,
@@ -83,6 +107,8 @@ fun generateCategoryClasses(
   generateEnum(packageName, characterData, unicodeObjects, internalPackageName, outputDir)
 }
 
+private fun Category.enumName(): String = name.replace(" ", "_").uppercase()
+
 private fun generateEnum(
   packageName: String,
   characterData: ClassName,
@@ -90,8 +116,6 @@ private fun generateEnum(
   internalPackageName: String,
   outputDir: Path,
 ) {
-  fun Category.enumName(): String = name.replace(" ", "_").uppercase()
-
   val characterDataProperty = "characterData"
   val enumClassname = ClassName(packageName, "CodepointCategory")
   val kotlinCategoryEnum = CharCategory::class.asTypeName()

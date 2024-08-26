@@ -25,6 +25,31 @@ private const val CONTAINS_METHOD = "contains"
 
 private const val CODEPOINT_PARAMETER = "codepoint"
 
+fun generateDirectionClassesTests(
+  packageName: String,
+  testPackageName: String,
+  outputDir: Path,
+  classes: List<BiDirectionalClass>,
+  rangeProvider: (BiDirectionalClass) -> List<Range>,
+) {
+  val enumClass = ClassName(packageName, "CodepointBidirectionalClass")
+
+  classes.forEach { directionalClass ->
+    val description =
+      TestDescription(
+        name = directionalClass.name,
+        property = "bidirectionalClass",
+        expectedEnum = enumClass,
+        expectedName = directionalClass.enumName(),
+        ranges = rangeProvider(directionalClass),
+      )
+    generateTests(
+      ClassName(testPackageName, "CodepointBidirectionalClass${directionalClass.name.replace(" ", "")}Test"),
+      sequenceOf(description),
+    ).writeTo(outputDir)
+  }
+}
+
 fun generateDirectionClasses(
   packageName: String,
   outputDir: Path,
@@ -82,6 +107,8 @@ fun generateDirectionClasses(
   generateEnum(packageName, characterData, unicodeObjects, internalPackageName, outputDir)
 }
 
+private fun BiDirectionalClass.enumName(): String = name.replace(" ", "_").uppercase()
+
 private fun generateEnum(
   packageName: String,
   characterData: ClassName,
@@ -90,11 +117,14 @@ private fun generateEnum(
   outputDir: Path,
 ) {
   val characterDataProperty = "characterData"
+
+  val enumClass = ClassName(packageName, "CodepointBidirectionalClass")
+
   FileSpec
-    .builder(packageName, "CodepointBidirectionalClass")
+    .builder(enumClass)
     .addType(
       TypeSpec
-        .enumBuilder("CodepointBidirectionalClass")
+        .enumBuilder(enumClass)
         .primaryConstructor(
           FunSpec
             .constructorBuilder()
@@ -112,7 +142,7 @@ private fun generateEnum(
         ).apply {
           unicodeObjects.forEach { (className, unicodeObject) ->
             addEnumConstant(
-              unicodeObject.name.replace(" ", "_").uppercase(),
+              unicodeObject.enumName(),
               TypeSpec
                 .anonymousClassBuilder()
                 .apply {

@@ -1,6 +1,7 @@
 package io.github.optimumcode.karacteristics.generator.internal.generator
 
 import com.squareup.kotlinpoet.AnnotationSpec
+import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.FileSpec
 import com.squareup.kotlinpoet.FunSpec
 import com.squareup.kotlinpoet.INT
@@ -14,6 +15,32 @@ import java.nio.file.Path
 
 private const val CODE_POINT_PARAMETER = "codePoint"
 
+fun generateDerivedJoiningTypesTests(
+  packageName: String,
+  testPackageName: String,
+  outputDir: Path,
+  joiningTypes: Map<String, List<JoiningType>>,
+) {
+  val enumClass = ClassName(packageName, "CodepointJoiningType")
+
+  for ((type, definitions) in joiningTypes) {
+    generateTests(
+      ClassName(testPackageName, "CodepointJoiningType${type}Test"),
+      definitions
+        .asSequence()
+        .map {
+          TestDescription(
+            name = type,
+            property = "joiningType",
+            expectedEnum = enumClass,
+            expectedName = type.uppercase(),
+            ranges = listOf(it.range),
+          )
+        },
+    ).writeTo(outputDir)
+  }
+}
+
 fun generateDerivedJoiningTypes(
   packageName: String,
   outputDir: Path,
@@ -25,11 +52,13 @@ fun generateDerivedJoiningTypes(
       .returns(Boolean::class)
       .addParameter(ParameterSpec.builder(CODE_POINT_PARAMETER, INT).build())
 
+  val enumClass = ClassName(packageName, "CodepointJoiningType")
+
   FileSpec
-    .builder(packageName, "CodepointJoiningType")
+    .builder(enumClass)
     .addType(
       TypeSpec
-        .enumBuilder("CodepointJoiningType")
+        .enumBuilder(enumClass)
         .addAnnotation(AnnotationSpec.builder(Suppress::class).addMember("%S", "detekt:all").build())
         .addFunction(containsFunction().addModifiers(ABSTRACT, INTERNAL).build())
         .apply {

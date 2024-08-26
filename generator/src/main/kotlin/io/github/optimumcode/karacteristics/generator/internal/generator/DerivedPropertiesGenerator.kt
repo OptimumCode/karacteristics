@@ -1,6 +1,7 @@
 package io.github.optimumcode.karacteristics.generator.internal.generator
 
 import com.squareup.kotlinpoet.AnnotationSpec
+import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.FileSpec
 import com.squareup.kotlinpoet.FunSpec
 import com.squareup.kotlinpoet.INT
@@ -14,6 +15,32 @@ import java.nio.file.Path
 
 private const val CODE_POINT_PARAMETER = "codePoint"
 
+fun generateDerivedPropertiesTest(
+  packageName: String,
+  testPackageName: String,
+  outputDir: Path,
+  derivedProperties: Map<String, List<DerivedProperty>>,
+) {
+  val enumClass = ClassName(packageName, "CodepointDerivedProperty")
+
+  for ((type, definitions) in derivedProperties) {
+    generateTests(
+      ClassName(testPackageName, "CodepointDerivedProperty${type}Test"),
+      definitions
+        .asSequence()
+        .map {
+          TestDescription(
+            name = type,
+            property = "derivedProperty",
+            expectedEnum = enumClass,
+            expectedName = type.uppercase(),
+            ranges = listOf(it.range),
+          )
+        },
+    ).writeTo(outputDir)
+  }
+}
+
 fun generateDerivedProperties(
   packageName: String,
   outputDir: Path,
@@ -25,11 +52,13 @@ fun generateDerivedProperties(
       .returns(Boolean::class)
       .addParameter(ParameterSpec.builder(CODE_POINT_PARAMETER, INT).build())
 
+  val enumClass = ClassName(packageName, "CodepointDerivedProperty")
+
   FileSpec
-    .builder(packageName, "CodepointDerivedProperty")
+    .builder(enumClass)
     .addType(
       TypeSpec
-        .enumBuilder("CodepointDerivedProperty")
+        .enumBuilder(enumClass)
         .addAnnotation(AnnotationSpec.builder(Suppress::class).addMember("%S", "detekt:all").build())
         .addFunction(containsFunction().addModifiers(ABSTRACT, INTERNAL).build())
         .apply {

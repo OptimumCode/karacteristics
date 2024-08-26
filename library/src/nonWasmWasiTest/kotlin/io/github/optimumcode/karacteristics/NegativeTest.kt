@@ -13,9 +13,14 @@ class NegativeTest :
         "joining type" to CodePoint::joiningType,
         "derived property" to CodePoint::derivedProperty,
       ).forEach { (name, property) ->
-        test("character $name our of range") {
+        test("codepoint $name our of range") {
           shouldThrow<IllegalArgumentException> {
             0xFFFFFF.property()
+          }.message shouldBe "code point must be in [0, 0x10FFFF]"
+        }
+        test("negative codepoint $name our of range") {
+          shouldThrow<IllegalArgumentException> {
+            (-1).property()
           }.message shouldBe "code point must be in [0, 0x10FFFF]"
         }
       }
