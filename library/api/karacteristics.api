@@ -82,6 +82,7 @@ public abstract class io/github/optimumcode/karacteristics/CodepointJoiningType 
 	public static final field DUAL_JOINING Lio/github/optimumcode/karacteristics/CodepointJoiningType;
 	public static final field JOIN_CAUSING Lio/github/optimumcode/karacteristics/CodepointJoiningType;
 	public static final field LEFT_JOINING Lio/github/optimumcode/karacteristics/CodepointJoiningType;
+	public static final field NON_JOINING Lio/github/optimumcode/karacteristics/CodepointJoiningType;
 	public static final field RIGHT_JOINING Lio/github/optimumcode/karacteristics/CodepointJoiningType;
 	public static final field TRANSPARENT Lio/github/optimumcode/karacteristics/CodepointJoiningType;
 	public synthetic fun <init> (Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -91,6 +92,10 @@ public abstract class io/github/optimumcode/karacteristics/CodepointJoiningType 
 }
 
 public final class io/github/optimumcode/karacteristics/ExtensionsKt {
+	public static final fun contains (Lio/github/optimumcode/karacteristics/CodepointBidirectionalClass;I)Z
+	public static final fun contains (Lio/github/optimumcode/karacteristics/CodepointCategory;I)Z
+	public static final fun contains (Lio/github/optimumcode/karacteristics/CodepointDerivedProperty;I)Z
+	public static final fun contains (Lio/github/optimumcode/karacteristics/CodepointJoiningType;I)Z
 	public static final fun getBidirectionalClass (I)Lio/github/optimumcode/karacteristics/CodepointBidirectionalClass;
 	public static final fun getCategory (I)Lio/github/optimumcode/karacteristics/CodepointCategory;
 	public static final fun getDerivedProperty (I)Lio/github/optimumcode/karacteristics/CodepointDerivedProperty;

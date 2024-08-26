@@ -24,6 +24,7 @@ abstract enum class io.github.optimumcode.karacteristics/CodepointJoiningType : 
     enum entry DUAL_JOINING // io.github.optimumcode.karacteristics/CodepointJoiningType.DUAL_JOINING|null[0]
     enum entry JOIN_CAUSING // io.github.optimumcode.karacteristics/CodepointJoiningType.JOIN_CAUSING|null[0]
     enum entry LEFT_JOINING // io.github.optimumcode.karacteristics/CodepointJoiningType.LEFT_JOINING|null[0]
+    enum entry NON_JOINING // io.github.optimumcode.karacteristics/CodepointJoiningType.NON_JOINING|null[0]
     enum entry RIGHT_JOINING // io.github.optimumcode.karacteristics/CodepointJoiningType.RIGHT_JOINING|null[0]
     enum entry TRANSPARENT // io.github.optimumcode.karacteristics/CodepointJoiningType.TRANSPARENT|null[0]
 
@@ -113,4 +114,8 @@ final val io.github.optimumcode.karacteristics/derivedProperty // io.github.opti
 final val io.github.optimumcode.karacteristics/joiningType // io.github.optimumcode.karacteristics/joiningType|@kotlin.Int{}joiningType[0]
     final fun (kotlin/Int).<get-joiningType>(): io.github.optimumcode.karacteristics/CodepointJoiningType // io.github.optimumcode.karacteristics/joiningType.<get-joiningType>|<get-joiningType>@kotlin.Int(){}[0]
 
+final fun (io.github.optimumcode.karacteristics/CodepointBidirectionalClass).io.github.optimumcode.karacteristics/contains(kotlin/Int): kotlin/Boolean // io.github.optimumcode.karacteristics/contains|contains@io.github.optimumcode.karacteristics.CodepointBidirectionalClass(kotlin.Int){}[0]
+final fun (io.github.optimumcode.karacteristics/CodepointCategory).io.github.optimumcode.karacteristics/contains(kotlin/Int): kotlin/Boolean // io.github.optimumcode.karacteristics/contains|contains@io.github.optimumcode.karacteristics.CodepointCategory(kotlin.Int){}[0]
 final fun (io.github.optimumcode.karacteristics/CodepointCategory).io.github.optimumcode.karacteristics/toCharCategory(): kotlin.text/CharCategory // io.github.optimumcode.karacteristics/toCharCategory|toCharCategory@io.github.optimumcode.karacteristics.CodepointCategory(){}[0]
+final fun (io.github.optimumcode.karacteristics/CodepointDerivedProperty).io.github.optimumcode.karacteristics/contains(kotlin/Int): kotlin/Boolean // io.github.optimumcode.karacteristics/contains|contains@io.github.optimumcode.karacteristics.CodepointDerivedProperty(kotlin.Int){}[0]
+final fun (io.github.optimumcode.karacteristics/CodepointJoiningType).io.github.optimumcode.karacteristics/contains(kotlin/Int): kotlin/Boolean // io.github.optimumcode.karacteristics/contains|contains@io.github.optimumcode.karacteristics.CodepointJoiningType(kotlin.Int){}[0]
