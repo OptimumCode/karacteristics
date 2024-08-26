@@ -1,0 +1,99 @@
+public final class io/github/optimumcode/karacteristics/CodepointBidirectionalClass : java/lang/Enum {
+	public static final field ARABIC_LETTER Lio/github/optimumcode/karacteristics/CodepointBidirectionalClass;
+	public static final field ARABIC_NUMBER Lio/github/optimumcode/karacteristics/CodepointBidirectionalClass;
+	public static final field BOUNDARY_NEUTRAL Lio/github/optimumcode/karacteristics/CodepointBidirectionalClass;
+	public static final field COMMON_SEPARATOR Lio/github/optimumcode/karacteristics/CodepointBidirectionalClass;
+	public static final field EUROPEAN_NUMBER Lio/github/optimumcode/karacteristics/CodepointBidirectionalClass;
+	public static final field EUROPEAN_SEPARATOR Lio/github/optimumcode/karacteristics/CodepointBidirectionalClass;
+	public static final field EUROPEAN_TERMINATOR Lio/github/optimumcode/karacteristics/CodepointBidirectionalClass;
+	public static final field FIRST_STRONG_ISOLATE Lio/github/optimumcode/karacteristics/CodepointBidirectionalClass;
+	public static final field LEFT_TO_RIGHT Lio/github/optimumcode/karacteristics/CodepointBidirectionalClass;
+	public static final field LEFT_TO_RIGHT_EMBEDDING Lio/github/optimumcode/karacteristics/CodepointBidirectionalClass;
+	public static final field LEFT_TO_RIGHT_ISOLATE Lio/github/optimumcode/karacteristics/CodepointBidirectionalClass;
+	public static final field LEFT_TO_RIGHT_OVERRIDE Lio/github/optimumcode/karacteristics/CodepointBidirectionalClass;
+	public static final field NONSPACING_MARK Lio/github/optimumcode/karacteristics/CodepointBidirectionalClass;
+	public static final field OTHER_NEUTRAL Lio/github/optimumcode/karacteristics/CodepointBidirectionalClass;
+	public static final field PARAGRAPH_SEPARATOR Lio/github/optimumcode/karacteristics/CodepointBidirectionalClass;
+	public static final field POP_DIRECTIONAL_FORMAT Lio/github/optimumcode/karacteristics/CodepointBidirectionalClass;
+	public static final field POP_DIRECTIONAL_ISOLATE Lio/github/optimumcode/karacteristics/CodepointBidirectionalClass;
+	public static final field RIGHT_TO_LEFT Lio/github/optimumcode/karacteristics/CodepointBidirectionalClass;
+	public static final field RIGHT_TO_LEFT_EMBEDDING Lio/github/optimumcode/karacteristics/CodepointBidirectionalClass;
+	public static final field RIGHT_TO_LEFT_ISOLATE Lio/github/optimumcode/karacteristics/CodepointBidirectionalClass;
+	public static final field RIGHT_TO_LEFT_OVERRIDE Lio/github/optimumcode/karacteristics/CodepointBidirectionalClass;
+	public static final field SEGMENT_SEPARATOR Lio/github/optimumcode/karacteristics/CodepointBidirectionalClass;
+	public static final field WHITE_SPACE Lio/github/optimumcode/karacteristics/CodepointBidirectionalClass;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/optimumcode/karacteristics/CodepointBidirectionalClass;
+	public static fun values ()[Lio/github/optimumcode/karacteristics/CodepointBidirectionalClass;
+}
+
+public final class io/github/optimumcode/karacteristics/CodepointCategory : java/lang/Enum {
+	public static final field CLOSE_PUNCTUATION Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static final field CONNECTOR_PUNCTUATION Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static final field CONTROL Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static final field CURRENCY_SYMBOL Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static final field DASH_PUNCTUATION Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static final field DECIMAL_NUMBER Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static final field ENCLOSING_MARK Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static final field FINAL_PUNCTUATION Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static final field FORMAT Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static final field INITIAL_PUNCTUATION Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static final field LETTER_NUMBER Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static final field LINE_SEPARATOR Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static final field LOWERCASE_LETTER Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static final field MATH_SYMBOL Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static final field MODIFIER_LETTER Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static final field MODIFIER_SYMBOL Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static final field NONSPACING_MARK Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static final field OPEN_PUNCTUATION Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static final field OTHER_LETTER Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static final field OTHER_NUMBER Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static final field OTHER_PUNCTUATION Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static final field OTHER_SYMBOL Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static final field PARAGRAPH_SEPARATOR Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static final field PRIVATE_USE Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static final field SPACE_SEPARATOR Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static final field SPACING_MARK Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static final field SURRROGATE Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static final field TITLECASE_LETTER Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static final field UPPERCASE_LETTER Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static fun values ()[Lio/github/optimumcode/karacteristics/CodepointCategory;
+}
+
+public final class io/github/optimumcode/karacteristics/CodepointCategoryKt {
+	public static final fun toCharCategory (Lio/github/optimumcode/karacteristics/CodepointCategory;)Lkotlin/text/CharCategory;
+}
+
+public abstract class io/github/optimumcode/karacteristics/CodepointDerivedProperty : java/lang/Enum {
+	public static final field CONTEXTJ Lio/github/optimumcode/karacteristics/CodepointDerivedProperty;
+	public static final field CONTEXTO Lio/github/optimumcode/karacteristics/CodepointDerivedProperty;
+	public static final field DISALLOWED Lio/github/optimumcode/karacteristics/CodepointDerivedProperty;
+	public static final field PVALID Lio/github/optimumcode/karacteristics/CodepointDerivedProperty;
+	public static final field UNASSIGNED Lio/github/optimumcode/karacteristics/CodepointDerivedProperty;
+	public synthetic fun <init> (Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/optimumcode/karacteristics/CodepointDerivedProperty;
+	public static fun values ()[Lio/github/optimumcode/karacteristics/CodepointDerivedProperty;
+}
+
+public abstract class io/github/optimumcode/karacteristics/CodepointJoiningType : java/lang/Enum {
+	public static final field DUAL_JOINING Lio/github/optimumcode/karacteristics/CodepointJoiningType;
+	public static final field JOIN_CAUSING Lio/github/optimumcode/karacteristics/CodepointJoiningType;
+	public static final field LEFT_JOINING Lio/github/optimumcode/karacteristics/CodepointJoiningType;
+	public static final field RIGHT_JOINING Lio/github/optimumcode/karacteristics/CodepointJoiningType;
+	public static final field TRANSPARENT Lio/github/optimumcode/karacteristics/CodepointJoiningType;
+	public synthetic fun <init> (Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/optimumcode/karacteristics/CodepointJoiningType;
+	public static fun values ()[Lio/github/optimumcode/karacteristics/CodepointJoiningType;
+}
+
+public final class io/github/optimumcode/karacteristics/ExtensionsKt {
+	public static final fun getBidirectionalClass (I)Lio/github/optimumcode/karacteristics/CodepointBidirectionalClass;
+	public static final fun getCategory (I)Lio/github/optimumcode/karacteristics/CodepointCategory;
+	public static final fun getDerivedProperty (I)Lio/github/optimumcode/karacteristics/CodepointDerivedProperty;
+	public static final fun getJoiningType (I)Lio/github/optimumcode/karacteristics/CodepointJoiningType;
+}
+

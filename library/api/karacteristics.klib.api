@@ -1,0 +1,116 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64, iosX64, js, linuxArm64, linuxX64, macosArm64, macosX64, mingwX64, wasmJs, wasmWasi]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <io.github.optimumcode:karacteristics>
+abstract enum class io.github.optimumcode.karacteristics/CodepointDerivedProperty : kotlin/Enum<io.github.optimumcode.karacteristics/CodepointDerivedProperty> { // io.github.optimumcode.karacteristics/CodepointDerivedProperty|null[0]
+    enum entry CONTEXTJ // io.github.optimumcode.karacteristics/CodepointDerivedProperty.CONTEXTJ|null[0]
+    enum entry CONTEXTO // io.github.optimumcode.karacteristics/CodepointDerivedProperty.CONTEXTO|null[0]
+    enum entry DISALLOWED // io.github.optimumcode.karacteristics/CodepointDerivedProperty.DISALLOWED|null[0]
+    enum entry PVALID // io.github.optimumcode.karacteristics/CodepointDerivedProperty.PVALID|null[0]
+    enum entry UNASSIGNED // io.github.optimumcode.karacteristics/CodepointDerivedProperty.UNASSIGNED|null[0]
+
+    final val entries // io.github.optimumcode.karacteristics/CodepointDerivedProperty.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.optimumcode.karacteristics/CodepointDerivedProperty> // io.github.optimumcode.karacteristics/CodepointDerivedProperty.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.optimumcode.karacteristics/CodepointDerivedProperty // io.github.optimumcode.karacteristics/CodepointDerivedProperty.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.optimumcode.karacteristics/CodepointDerivedProperty> // io.github.optimumcode.karacteristics/CodepointDerivedProperty.values|values#static(){}[0]
+}
+
+abstract enum class io.github.optimumcode.karacteristics/CodepointJoiningType : kotlin/Enum<io.github.optimumcode.karacteristics/CodepointJoiningType> { // io.github.optimumcode.karacteristics/CodepointJoiningType|null[0]
+    enum entry DUAL_JOINING // io.github.optimumcode.karacteristics/CodepointJoiningType.DUAL_JOINING|null[0]
+    enum entry JOIN_CAUSING // io.github.optimumcode.karacteristics/CodepointJoiningType.JOIN_CAUSING|null[0]
+    enum entry LEFT_JOINING // io.github.optimumcode.karacteristics/CodepointJoiningType.LEFT_JOINING|null[0]
+    enum entry RIGHT_JOINING // io.github.optimumcode.karacteristics/CodepointJoiningType.RIGHT_JOINING|null[0]
+    enum entry TRANSPARENT // io.github.optimumcode.karacteristics/CodepointJoiningType.TRANSPARENT|null[0]
+
+    final val entries // io.github.optimumcode.karacteristics/CodepointJoiningType.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.optimumcode.karacteristics/CodepointJoiningType> // io.github.optimumcode.karacteristics/CodepointJoiningType.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.optimumcode.karacteristics/CodepointJoiningType // io.github.optimumcode.karacteristics/CodepointJoiningType.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.optimumcode.karacteristics/CodepointJoiningType> // io.github.optimumcode.karacteristics/CodepointJoiningType.values|values#static(){}[0]
+}
+
+final enum class io.github.optimumcode.karacteristics/CodepointBidirectionalClass : kotlin/Enum<io.github.optimumcode.karacteristics/CodepointBidirectionalClass> { // io.github.optimumcode.karacteristics/CodepointBidirectionalClass|null[0]
+    enum entry ARABIC_LETTER // io.github.optimumcode.karacteristics/CodepointBidirectionalClass.ARABIC_LETTER|null[0]
+    enum entry ARABIC_NUMBER // io.github.optimumcode.karacteristics/CodepointBidirectionalClass.ARABIC_NUMBER|null[0]
+    enum entry BOUNDARY_NEUTRAL // io.github.optimumcode.karacteristics/CodepointBidirectionalClass.BOUNDARY_NEUTRAL|null[0]
+    enum entry COMMON_SEPARATOR // io.github.optimumcode.karacteristics/CodepointBidirectionalClass.COMMON_SEPARATOR|null[0]
+    enum entry EUROPEAN_NUMBER // io.github.optimumcode.karacteristics/CodepointBidirectionalClass.EUROPEAN_NUMBER|null[0]
+    enum entry EUROPEAN_SEPARATOR // io.github.optimumcode.karacteristics/CodepointBidirectionalClass.EUROPEAN_SEPARATOR|null[0]
+    enum entry EUROPEAN_TERMINATOR // io.github.optimumcode.karacteristics/CodepointBidirectionalClass.EUROPEAN_TERMINATOR|null[0]
+    enum entry FIRST_STRONG_ISOLATE // io.github.optimumcode.karacteristics/CodepointBidirectionalClass.FIRST_STRONG_ISOLATE|null[0]
+    enum entry LEFT_TO_RIGHT // io.github.optimumcode.karacteristics/CodepointBidirectionalClass.LEFT_TO_RIGHT|null[0]
+    enum entry LEFT_TO_RIGHT_EMBEDDING // io.github.optimumcode.karacteristics/CodepointBidirectionalClass.LEFT_TO_RIGHT_EMBEDDING|null[0]
+    enum entry LEFT_TO_RIGHT_ISOLATE // io.github.optimumcode.karacteristics/CodepointBidirectionalClass.LEFT_TO_RIGHT_ISOLATE|null[0]
+    enum entry LEFT_TO_RIGHT_OVERRIDE // io.github.optimumcode.karacteristics/CodepointBidirectionalClass.LEFT_TO_RIGHT_OVERRIDE|null[0]
+    enum entry NONSPACING_MARK // io.github.optimumcode.karacteristics/CodepointBidirectionalClass.NONSPACING_MARK|null[0]
+    enum entry OTHER_NEUTRAL // io.github.optimumcode.karacteristics/CodepointBidirectionalClass.OTHER_NEUTRAL|null[0]
+    enum entry PARAGRAPH_SEPARATOR // io.github.optimumcode.karacteristics/CodepointBidirectionalClass.PARAGRAPH_SEPARATOR|null[0]
+    enum entry POP_DIRECTIONAL_FORMAT // io.github.optimumcode.karacteristics/CodepointBidirectionalClass.POP_DIRECTIONAL_FORMAT|null[0]
+    enum entry POP_DIRECTIONAL_ISOLATE // io.github.optimumcode.karacteristics/CodepointBidirectionalClass.POP_DIRECTIONAL_ISOLATE|null[0]
+    enum entry RIGHT_TO_LEFT // io.github.optimumcode.karacteristics/CodepointBidirectionalClass.RIGHT_TO_LEFT|null[0]
+    enum entry RIGHT_TO_LEFT_EMBEDDING // io.github.optimumcode.karacteristics/CodepointBidirectionalClass.RIGHT_TO_LEFT_EMBEDDING|null[0]
+    enum entry RIGHT_TO_LEFT_ISOLATE // io.github.optimumcode.karacteristics/CodepointBidirectionalClass.RIGHT_TO_LEFT_ISOLATE|null[0]
+    enum entry RIGHT_TO_LEFT_OVERRIDE // io.github.optimumcode.karacteristics/CodepointBidirectionalClass.RIGHT_TO_LEFT_OVERRIDE|null[0]
+    enum entry SEGMENT_SEPARATOR // io.github.optimumcode.karacteristics/CodepointBidirectionalClass.SEGMENT_SEPARATOR|null[0]
+    enum entry WHITE_SPACE // io.github.optimumcode.karacteristics/CodepointBidirectionalClass.WHITE_SPACE|null[0]
+
+    final val entries // io.github.optimumcode.karacteristics/CodepointBidirectionalClass.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.optimumcode.karacteristics/CodepointBidirectionalClass> // io.github.optimumcode.karacteristics/CodepointBidirectionalClass.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.optimumcode.karacteristics/CodepointBidirectionalClass // io.github.optimumcode.karacteristics/CodepointBidirectionalClass.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.optimumcode.karacteristics/CodepointBidirectionalClass> // io.github.optimumcode.karacteristics/CodepointBidirectionalClass.values|values#static(){}[0]
+}
+
+final enum class io.github.optimumcode.karacteristics/CodepointCategory : kotlin/Enum<io.github.optimumcode.karacteristics/CodepointCategory> { // io.github.optimumcode.karacteristics/CodepointCategory|null[0]
+    enum entry CLOSE_PUNCTUATION // io.github.optimumcode.karacteristics/CodepointCategory.CLOSE_PUNCTUATION|null[0]
+    enum entry CONNECTOR_PUNCTUATION // io.github.optimumcode.karacteristics/CodepointCategory.CONNECTOR_PUNCTUATION|null[0]
+    enum entry CONTROL // io.github.optimumcode.karacteristics/CodepointCategory.CONTROL|null[0]
+    enum entry CURRENCY_SYMBOL // io.github.optimumcode.karacteristics/CodepointCategory.CURRENCY_SYMBOL|null[0]
+    enum entry DASH_PUNCTUATION // io.github.optimumcode.karacteristics/CodepointCategory.DASH_PUNCTUATION|null[0]
+    enum entry DECIMAL_NUMBER // io.github.optimumcode.karacteristics/CodepointCategory.DECIMAL_NUMBER|null[0]
+    enum entry ENCLOSING_MARK // io.github.optimumcode.karacteristics/CodepointCategory.ENCLOSING_MARK|null[0]
+    enum entry FINAL_PUNCTUATION // io.github.optimumcode.karacteristics/CodepointCategory.FINAL_PUNCTUATION|null[0]
+    enum entry FORMAT // io.github.optimumcode.karacteristics/CodepointCategory.FORMAT|null[0]
+    enum entry INITIAL_PUNCTUATION // io.github.optimumcode.karacteristics/CodepointCategory.INITIAL_PUNCTUATION|null[0]
+    enum entry LETTER_NUMBER // io.github.optimumcode.karacteristics/CodepointCategory.LETTER_NUMBER|null[0]
+    enum entry LINE_SEPARATOR // io.github.optimumcode.karacteristics/CodepointCategory.LINE_SEPARATOR|null[0]
+    enum entry LOWERCASE_LETTER // io.github.optimumcode.karacteristics/CodepointCategory.LOWERCASE_LETTER|null[0]
+    enum entry MATH_SYMBOL // io.github.optimumcode.karacteristics/CodepointCategory.MATH_SYMBOL|null[0]
+    enum entry MODIFIER_LETTER // io.github.optimumcode.karacteristics/CodepointCategory.MODIFIER_LETTER|null[0]
+    enum entry MODIFIER_SYMBOL // io.github.optimumcode.karacteristics/CodepointCategory.MODIFIER_SYMBOL|null[0]
+    enum entry NONSPACING_MARK // io.github.optimumcode.karacteristics/CodepointCategory.NONSPACING_MARK|null[0]
+    enum entry OPEN_PUNCTUATION // io.github.optimumcode.karacteristics/CodepointCategory.OPEN_PUNCTUATION|null[0]
+    enum entry OTHER_LETTER // io.github.optimumcode.karacteristics/CodepointCategory.OTHER_LETTER|null[0]
+    enum entry OTHER_NUMBER // io.github.optimumcode.karacteristics/CodepointCategory.OTHER_NUMBER|null[0]
+    enum entry OTHER_PUNCTUATION // io.github.optimumcode.karacteristics/CodepointCategory.OTHER_PUNCTUATION|null[0]
+    enum entry OTHER_SYMBOL // io.github.optimumcode.karacteristics/CodepointCategory.OTHER_SYMBOL|null[0]
+    enum entry PARAGRAPH_SEPARATOR // io.github.optimumcode.karacteristics/CodepointCategory.PARAGRAPH_SEPARATOR|null[0]
+    enum entry PRIVATE_USE // io.github.optimumcode.karacteristics/CodepointCategory.PRIVATE_USE|null[0]
+    enum entry SPACE_SEPARATOR // io.github.optimumcode.karacteristics/CodepointCategory.SPACE_SEPARATOR|null[0]
+    enum entry SPACING_MARK // io.github.optimumcode.karacteristics/CodepointCategory.SPACING_MARK|null[0]
+    enum entry SURRROGATE // io.github.optimumcode.karacteristics/CodepointCategory.SURRROGATE|null[0]
+    enum entry TITLECASE_LETTER // io.github.optimumcode.karacteristics/CodepointCategory.TITLECASE_LETTER|null[0]
+    enum entry UPPERCASE_LETTER // io.github.optimumcode.karacteristics/CodepointCategory.UPPERCASE_LETTER|null[0]
+
+    final val entries // io.github.optimumcode.karacteristics/CodepointCategory.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.optimumcode.karacteristics/CodepointCategory> // io.github.optimumcode.karacteristics/CodepointCategory.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.optimumcode.karacteristics/CodepointCategory // io.github.optimumcode.karacteristics/CodepointCategory.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.optimumcode.karacteristics/CodepointCategory> // io.github.optimumcode.karacteristics/CodepointCategory.values|values#static(){}[0]
+}
+
+final val io.github.optimumcode.karacteristics/bidirectionalClass // io.github.optimumcode.karacteristics/bidirectionalClass|@kotlin.Int{}bidirectionalClass[0]
+    final fun (kotlin/Int).<get-bidirectionalClass>(): io.github.optimumcode.karacteristics/CodepointBidirectionalClass // io.github.optimumcode.karacteristics/bidirectionalClass.<get-bidirectionalClass>|<get-bidirectionalClass>@kotlin.Int(){}[0]
+final val io.github.optimumcode.karacteristics/category // io.github.optimumcode.karacteristics/category|@kotlin.Int{}category[0]
+    final fun (kotlin/Int).<get-category>(): io.github.optimumcode.karacteristics/CodepointCategory // io.github.optimumcode.karacteristics/category.<get-category>|<get-category>@kotlin.Int(){}[0]
+final val io.github.optimumcode.karacteristics/derivedProperty // io.github.optimumcode.karacteristics/derivedProperty|@kotlin.Int{}derivedProperty[0]
+    final fun (kotlin/Int).<get-derivedProperty>(): io.github.optimumcode.karacteristics/CodepointDerivedProperty // io.github.optimumcode.karacteristics/derivedProperty.<get-derivedProperty>|<get-derivedProperty>@kotlin.Int(){}[0]
+final val io.github.optimumcode.karacteristics/joiningType // io.github.optimumcode.karacteristics/joiningType|@kotlin.Int{}joiningType[0]
+    final fun (kotlin/Int).<get-joiningType>(): io.github.optimumcode.karacteristics/CodepointJoiningType // io.github.optimumcode.karacteristics/joiningType.<get-joiningType>|<get-joiningType>@kotlin.Int(){}[0]
+
+final fun (io.github.optimumcode.karacteristics/CodepointCategory).io.github.optimumcode.karacteristics/toCharCategory(): kotlin.text/CharCategory // io.github.optimumcode.karacteristics/toCharCategory|toCharCategory@io.github.optimumcode.karacteristics.CodepointCategory(){}[0]
