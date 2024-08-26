@@ -13,6 +13,7 @@ fun generateTests(
 ): FileSpec =
   FileSpec
     .builder(testClass)
+    .addGeneratedNotice()
     .addImport("io.kotest.matchers", "shouldBe")
     .addImport(
       "io.github.optimumcode.karacteristics",

@@ -56,6 +56,7 @@ fun generateDerivedJoiningTypes(
 
   FileSpec
     .builder(enumClass)
+    .addGeneratedNotice()
     .addType(
       TypeSpec
         .enumBuilder(enumClass)

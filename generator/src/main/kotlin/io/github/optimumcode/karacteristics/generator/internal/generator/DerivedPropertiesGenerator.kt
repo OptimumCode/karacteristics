@@ -56,6 +56,7 @@ fun generateDerivedProperties(
 
   FileSpec
     .builder(enumClass)
+    .addGeneratedNotice()
     .addType(
       TypeSpec
         .enumBuilder(enumClass)

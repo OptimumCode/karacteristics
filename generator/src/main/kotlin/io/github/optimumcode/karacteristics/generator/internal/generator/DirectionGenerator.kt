@@ -65,6 +65,7 @@ fun generateDirectionClasses(
   val characterData = ClassName(internalPackageName, "CodepointDirectionData")
   FileSpec
     .builder(characterData)
+    .addGeneratedNotice()
     .addType(
       TypeSpec
         .interfaceBuilder(characterData)
@@ -122,6 +123,7 @@ private fun generateEnum(
 
   FileSpec
     .builder(enumClass)
+    .addGeneratedNotice()
     .addType(
       TypeSpec
         .enumBuilder(enumClass)
@@ -180,6 +182,7 @@ private fun generateObjectWithCheckLogic(
       .build()
   return FileSpec
     .builder(packageName, directionClassName)
+    .addGeneratedNotice()
     .addType(
       TypeSpec
         .objectBuilder(directionClassName)

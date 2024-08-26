@@ -65,6 +65,7 @@ fun generateCategoryClasses(
   val characterData = ClassName(internalPackageName, "CodepointCategoryData")
   FileSpec
     .builder(characterData)
+    .addGeneratedNotice()
     .addType(
       TypeSpec
         .interfaceBuilder(characterData)
@@ -121,6 +122,7 @@ private fun generateEnum(
   val kotlinCategoryEnum = CharCategory::class.asTypeName()
   FileSpec
     .builder(enumClassname)
+    .addGeneratedNotice()
     .addType(
       TypeSpec
         .enumBuilder(enumClassname)
@@ -203,6 +205,7 @@ private fun generateObjectWithCheckLogic(
       .build()
   return FileSpec
     .builder(packageName, directionClassName)
+    .addGeneratedNotice()
     .addType(
       TypeSpec
         .objectBuilder(directionClassName)
