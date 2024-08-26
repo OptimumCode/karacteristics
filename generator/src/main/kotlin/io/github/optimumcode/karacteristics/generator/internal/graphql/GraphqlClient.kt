@@ -13,98 +13,98 @@ import kotlinx.coroutines.flow.flow
 import java.net.URL
 
 internal class GraphqlClient(
-    url: URL,
-    maxRetries: Int = 3,
+  url: URL,
+  maxRetries: Int = 3,
 ) : AutoCloseable {
-    private val client =
-        GraphQLKtorClient(
-            url = url,
-            httpClient =
-                HttpClient(CIO) {
-                    install(HttpRequestRetry) {
-                        retryOnServerErrors(maxRetries = maxRetries)
-                        exponentialDelay()
-                    }
-                },
-        )
+  private val client =
+    GraphQLKtorClient(
+      url = url,
+      httpClient =
+        HttpClient(CIO) {
+          install(HttpRequestRetry) {
+            retryOnServerErrors(maxRetries = maxRetries)
+            exponentialDelay()
+          }
+        },
+    )
 
-    suspend fun bidirectionalClasses(): List<BiDirectionalClass> {
-        val response = client.execute(BidirectionalClasses())
+  suspend fun bidirectionalClasses(): List<BiDirectionalClass> {
+    val response = client.execute(BidirectionalClasses())
+    checkNoErrors(response)
+    return response.data
+      ?.unicodeObject
+      ?.mapNotNull { it?.run { BiDirectionalClass(id!!, name!!) } }
+      ?: emptyList()
+  }
+
+  @Suppress("DuplicatedCode")
+  fun charactersForClass(classId: String): Flow<UnicodeChar> =
+    flow {
+      var offset = 0
+      do {
+        val response =
+          client.execute(
+            BidirectionalCharactersForClass(
+              BidirectionalCharactersForClass.Variables(
+                id = classId,
+                offset = offset,
+                limit = 1000,
+              ),
+            ),
+          )
         checkNoErrors(response)
-        return response.data
-            ?.unicodeObject
-            ?.mapNotNull { it?.run { BiDirectionalClass(id!!, name!!) } }
-            ?: emptyList()
+        val data = response.data?.unicodeObject ?: return@flow
+        for (unicodeObject in data) {
+          unicodeObject?.chars?.forEach {
+            it?.run { emit(UnicodeChar(id!!, text?.takeUnless(String::isEmpty))) }
+          }
+          offset += unicodeObject?.chars?.size ?: 0
+        }
+      } while (data.any { !it?.chars.isNullOrEmpty() })
     }
 
-    @Suppress("DuplicatedCode")
-    fun charactersForClass(classId: String): Flow<UnicodeChar> =
-        flow {
-            var offset = 0
-            do {
-                val response =
-                    client.execute(
-                        BidirectionalCharactersForClass(
-                            BidirectionalCharactersForClass.Variables(
-                                id = classId,
-                                offset = offset,
-                                limit = 1000,
-                            ),
-                        ),
-                    )
-                checkNoErrors(response)
-                val data = response.data?.unicodeObject ?: return@flow
-                for (unicodeObject in data) {
-                    unicodeObject?.chars?.forEach {
-                        it?.run { emit(UnicodeChar(id!!, text?.takeUnless(String::isEmpty))) }
-                    }
-                    offset += unicodeObject?.chars?.size ?: 0
-                }
-            } while (data.any { !it?.chars.isNullOrEmpty() })
-        }
+  suspend fun categories(): List<Category> {
+    val response = client.execute(CharacterCategories())
+    checkNoErrors(response)
+    return response.data
+      ?.unicodeObject
+      ?.mapNotNull { it?.run { Category(id!!, name!!) } }
+      ?: emptyList()
+  }
 
-    suspend fun categories(): List<Category> {
-        val response = client.execute(CharacterCategories())
+  @Suppress("DuplicatedCode")
+  fun charactersForCategory(category: Category): Flow<UnicodeChar> =
+    flow {
+      var offset = 0
+      do {
+        val response =
+          client.execute(
+            CharactersForCategory(
+              CharactersForCategory.Variables(
+                id = category.id,
+                offset = offset,
+                limit = 1000,
+              ),
+            ),
+          )
         checkNoErrors(response)
-        return response.data
-            ?.unicodeObject
-            ?.mapNotNull { it?.run { Category(id!!, name!!) } }
-            ?: emptyList()
-    }
-
-    @Suppress("DuplicatedCode")
-    fun charactersForCategory(category: Category): Flow<UnicodeChar> =
-        flow {
-            var offset = 0
-            do {
-                val response =
-                    client.execute(
-                        CharactersForCategory(
-                            CharactersForCategory.Variables(
-                                id = category.id,
-                                offset = offset,
-                                limit = 1000,
-                            ),
-                        ),
-                    )
-                checkNoErrors(response)
-                val data = response.data?.unicodeObject ?: return@flow
-                for (unicodeObject in data) {
-                    unicodeObject?.chars?.forEach {
-                        it?.run { emit(UnicodeChar(id!!, text?.takeUnless(String::isEmpty))) }
-                    }
-                    offset += unicodeObject?.chars?.size ?: 0
-                }
-            } while (data.any { !it?.chars.isNullOrEmpty() })
+        val data = response.data?.unicodeObject ?: return@flow
+        for (unicodeObject in data) {
+          unicodeObject?.chars?.forEach {
+            it?.run { emit(UnicodeChar(id!!, text?.takeUnless(String::isEmpty))) }
+          }
+          offset += unicodeObject?.chars?.size ?: 0
         }
-
-    override fun close() {
-        client.close()
+      } while (data.any { !it?.chars.isNullOrEmpty() })
     }
 
-    private fun checkNoErrors(response: GraphQLClientResponse<*>) {
-        check(response.errors.isNullOrEmpty()) {
-            "errors during request execution: ${response.errors}"
-        }
+  override fun close() {
+    client.close()
+  }
+
+  private fun checkNoErrors(response: GraphQLClientResponse<*>) {
+    check(response.errors.isNullOrEmpty()) {
+      "errors during request execution: ${response.errors}"
     }
+  }
 }
