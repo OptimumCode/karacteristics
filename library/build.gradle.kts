@@ -1,6 +1,7 @@
 @file:OptIn(ExperimentalWasmDsl::class)
 
-import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
+
 
 plugins {
   alias(libs.plugins.kotlin.mutliplatform)
