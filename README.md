@@ -47,7 +47,7 @@ kotlin {
   sourceSets {
     commonMain {
       dependencies {
-        implementation("io.github.optimumcode:karacteristics:0.0.2")
+        implementation("io.github.optimumcode:karacteristics:0.0.3")
       }
     }
   }
