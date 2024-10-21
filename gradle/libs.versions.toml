@@ -2,7 +2,7 @@
 kotlin = "2.0.21"
 kotest = "6.0.0.M1"
 serialization = "1.7.3"
-graphql = "8.1.0"
+graphql = "8.2.0"
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
