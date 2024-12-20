@@ -8,7 +8,7 @@ graphql = "8.2.1"
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-mutliplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
-kotlin-binaryCompatibility = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version = "0.16.3" }
+kotlin-binaryCompatibility = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version = "0.17.0" }
 kotest-multiplatform = { id = "io.kotest.multiplatform", version.ref = "kotest" }
 expediagroup-graphql = { id = "com.expediagroup.graphql", version.ref = "graphql" }
 publication = { id = "com.vanniktech.maven.publish", version = "0.30.0" }
