@@ -1,5 +1,6 @@
 import com.expediagroup.graphql.plugin.gradle.config.GraphQLSerializer
 import com.expediagroup.graphql.plugin.gradle.graphql
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
   alias(libs.plugins.kotlin.jvm)
@@ -8,7 +9,9 @@ plugins {
 }
 
 kotlin {
-  jvmToolchain(17)
+  compilerOptions {
+    jvmTarget.set(JvmTarget.JVM_21)
+  }
 }
 
 dependencies {
