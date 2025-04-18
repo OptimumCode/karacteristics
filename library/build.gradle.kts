@@ -1,6 +1,7 @@
 @file:OptIn(ExperimentalWasmDsl::class)
 
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 
 plugins {
@@ -19,11 +20,13 @@ kotlin {
   explicitApi()
 
   applyDefaultHierarchyTemplate()
-
-  jvmToolchain(11)
   jvm {
     testRuns["test"].executionTask.configure {
       useJUnitPlatform()
+    }
+    compilerOptions {
+      jvmTarget.set(JvmTarget.JVM_11)
+      freeCompilerArgs.add("-Xjdk-release=11")
     }
   }
   js(IR) {
