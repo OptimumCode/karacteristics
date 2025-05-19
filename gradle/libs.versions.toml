@@ -19,6 +19,6 @@ kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version.
 kotest-framework-engine = { module = "io.kotest:kotest-framework-engine", version.ref = "kotest" }
 kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
 kotest-common = { module = "io.kotest:kotest-common", version.ref = "kotest" }
-kotlinpoet = { group = "com.squareup", name = "kotlinpoet", version = "2.1.0" }
+kotlinpoet = { group = "com.squareup", name = "kotlinpoet", version = "2.2.0" }
 graphql-ktor = { group = "com.expediagroup", name = "graphql-kotlin-ktor-client", version.ref = "graphql" }
 clikt = { group = "com.github.ajalt.clikt", name = "clikt", version = "5.0.3" }
