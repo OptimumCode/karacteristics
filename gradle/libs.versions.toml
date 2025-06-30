@@ -1,7 +1,7 @@
 [versions]
 kotlin = "2.1.21"
 kotest = "6.0.0.M3"
-serialization = "1.8.1"
+serialization = "1.9.0"
 graphql = "8.8.1"
 
 [plugins]
