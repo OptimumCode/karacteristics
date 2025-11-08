@@ -7,6 +7,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
   alias(libs.plugins.kotlin.mutliplatform)
   alias(libs.plugins.kotest.multiplatform)
+  alias(libs.plugins.ksp)
   alias(libs.plugins.publication)
 }
 
@@ -50,7 +51,9 @@ kotlin {
     browser()
     nodejs()
   }
-  wasmWasi()
+  wasmWasi {
+    nodejs()
+  }
 
   sourceSets {
     commonMain {
