@@ -12,7 +12,7 @@ kotlin-binaryCompatibility = { id = "org.jetbrains.kotlinx.binary-compatibility-
 kotest-multiplatform = { id = "io.kotest", version.ref = "kotest" }
 ksp = { id = "com.google.devtools.ksp", version = "2.3.2" }
 expediagroup-graphql = { id = "com.expediagroup.graphql", version.ref = "graphql" }
-publication = { id = "com.vanniktech.maven.publish", version = "0.34.0" }
+publication = { id = "com.vanniktech.maven.publish", version = "0.35.0" }
 
 [libraries]
 kotlin-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization" }
