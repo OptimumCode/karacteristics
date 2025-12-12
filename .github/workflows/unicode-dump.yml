@@ -15,7 +15,7 @@ jobs:
         java-version-file: .java-version
     - name: Cache unicode data
       id: cache
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       with:
         enableCrossOsArchive: true
         path: unicode_dump
