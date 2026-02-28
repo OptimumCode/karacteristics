@@ -22,4 +22,4 @@ kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref 
 kotest-common = { module = "io.kotest:kotest-common", version.ref = "kotest" }
 kotlinpoet = { group = "com.squareup", name = "kotlinpoet", version = "2.2.0" }
 graphql-ktor = { group = "com.expediagroup", name = "graphql-kotlin-ktor-client", version.ref = "graphql" }
-clikt = { group = "com.github.ajalt.clikt", name = "clikt", version = "5.0.3" }
+clikt = { group = "com.github.ajalt.clikt", name = "clikt", version = "5.1.0" }
