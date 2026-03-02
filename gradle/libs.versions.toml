@@ -1,7 +1,7 @@
 [versions]
-kotlin = "2.2.21"
-kotest = "6.0.4"
-serialization = "1.9.0"
+kotlin = "2.3.10"
+kotest = "6.1.4"
+serialization = "1.10.0"
 graphql = "8.8.1"
 
 [plugins]
@@ -10,9 +10,9 @@ kotlin-mutliplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref 
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlin-binaryCompatibility = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version = "0.18.1" }
 kotest-multiplatform = { id = "io.kotest", version.ref = "kotest" }
-ksp = { id = "com.google.devtools.ksp", version = "2.3.2" }
+ksp = { id = "com.google.devtools.ksp", version = "2.3.6" }
 expediagroup-graphql = { id = "com.expediagroup.graphql", version.ref = "graphql" }
-publication = { id = "com.vanniktech.maven.publish", version = "0.34.0" }
+publication = { id = "com.vanniktech.maven.publish", version = "0.36.0" }
 
 [libraries]
 kotlin-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization" }
@@ -22,4 +22,4 @@ kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref 
 kotest-common = { module = "io.kotest:kotest-common", version.ref = "kotest" }
 kotlinpoet = { group = "com.squareup", name = "kotlinpoet", version = "2.2.0" }
 graphql-ktor = { group = "com.expediagroup", name = "graphql-kotlin-ktor-client", version.ref = "graphql" }
-clikt = { group = "com.github.ajalt.clikt", name = "clikt", version = "5.0.3" }
+clikt = { group = "com.github.ajalt.clikt", name = "clikt", version = "5.1.0" }
