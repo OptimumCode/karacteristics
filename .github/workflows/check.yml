@@ -31,7 +31,7 @@ jobs:
     runs-on: ${{ inputs.run-on }}
     steps:
       - name: 'Checkout Repository'
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           submodules: true
       - uses: actions/setup-java@v5
