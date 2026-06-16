@@ -1,6 +1,6 @@
 [versions]
 kotlin = "2.3.21"
-kotest = "6.1.11"
+kotest = "6.2.0"
 serialization = "1.11.0"
 graphql = "10.0.0"
 
